@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sr Dog Mal Conversor De Créditos</title>
+    <link rel="stylesheet" href="styleconversor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Novo container para agrupar e centralizar os conversores -->
+    <div class="main-converters-wrapper">
+        <div class="fundo">
+            <div id="sr">
+            <h1> Sr Dog Mal</h1>
+    <h2>( IG: @srdogmalofc )</h2>
+    </div>
+            <h3>Conversor de CRÉDITOS IMVU para reais ( R$ )</h3>
+            <div class="box1">
+                <label class="subtitulo" for="valor"> Digite o valor de créditos via PRESENTE:</label>
+                <input type="number" id="valor" placeholder="Exemplo: 1000">
+
+                <button onclick="converter()">Converter para Reais</button>
+
+                <div id="resultado">O valor em Reais aparecerá aqui</div>
+                <div class="subtitulo"><strong> atual: 1.000 Via Presente = 1,99 Reais </strong></div>
+            </div>
+        </div>
+
+        <!-- Removemos os <br> e usaremos CSS para o espaçamento -->
+
+        <div class="fundo">
+            <h3>Conversor de créditos via direto IMVU para reais ( R$ )</h3>
+            <div class="box1">
+                <label class="subtitulo" for="valor1"> Digite o valor de créditos via DIRETO:</label>
+                <input type="number" id="valor1" placeholder="Exemplo: 1000">
+
+                <button onclick="converter1()">Converter para Reais</button>
+
+                <div id="resultado1">O valor em Reais aparecerá aqui</div>
+                <div class="subtitulo"><strong> atual: 1.000 Via Direto = 3,50 Reais </strong></div>
+            </div>
+        </div>
+    </div> <!-- Fecha o main-converters-wrapper -->
+</body>
+<script src="scriptconversor.js"></script>
+
+</html>

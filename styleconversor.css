@@ -1,0 +1,181 @@
+/* 1. Estilização do corpo da página (fundo degradê) */
+body {
+    /* Degradê linear: de cima para baixo, do azul claro para o azul marinho */
+    background: linear-gradient(to bottom, #0000FF, #000080); /* Ajuste as cores conforme desejar */
+    min-height: 100vh; /* Garante que o fundo ocupe a altura total da tela */
+    margin: 0; /* Remove margens padrão do navegador */
+    font-family: 'Oswald', sans-serif; /* Usando a fonte que você importou */
+    color: white; /* Cor padrão do texto para branco */
+
+    /* Usamos Flexbox para centralizar o wrapper principal na página */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente (se houver espaço) */
+    padding: 20px; /* Um pequeno respiro nas laterais */
+    box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+/* 2. Container principal para os dois conversores */
+.main-converters-wrapper {
+    display: flex;
+    flex-direction: column; /* Empilha os conver
+    sores verticalmente */
+    gap: 60px; /* Espaçamento entre os dois blocos de conversores */
+    width: 100%; /* Ocupa a largura disponível */
+    max-width: 700px; /* Limita a largura máxima para os conversores */
+    align-items: center; /* Centraliza os blocos .fundo se eles forem menores que a largura total */
+}
+
+/* 3. Estilização de cada bloco de conversor (.fundo) */
+.fundo {
+    background-color: rgba(255, 255, 255, 0.1); /* Um fundo levemente transparente para a caixa */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Ocupa a largura do main-converters-wrapper */
+    max-width: 600px; /* Limita a largura de cada bloco */
+    box-sizing: border-box; /* Inclui padding na largura total */
+    
+    /* Centraliza o texto e elementos inline/inline-block dentro do .fundo */
+    text-align: center;
+}
+
+/* Para destacar "CRÉDITOS" no primeiro h1 (seletor mais específico) */
+.fundo:first-child h1 {
+    text-transform: uppercase;
+}
+
+/* 5. Estilização da caixa interna (.box1) */
+.box1 {
+    /* Como o .fundo já tem text-align: center, o conteúdo do .box1 já será centralizado */
+    display: flex; /* Usamos flexbox para organizar os itens verticalmente */
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens dentro do box1 */
+    gap: 15px; /* Espaço entre os elementos (label, input, button, divs) */
+}
+
+/* 6. Estilização da frase (label.subtitulo) */
+label.subtitulo {
+    font-size: 1.1em;
+    font-weight: 400;
+    /* Com flex-direction: column e align-items: center no .box1, a label já estará centralizada */
+    /* margin-bottom: 10px; Removido pois 'gap' no .box1 já cuida do espaçamento */
+}
+
+/* 7. Estilização do campo de input */
+input[type="number"] {
+    background-color: white;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 5px;
+    width: 200px; /* Largura definida para o input */
+    font-size: 1.1em;
+    color: #333; /* Cor do texto digitado */
+    box-sizing: border-box; /* Inclui padding na largura total */
+    text-align: center; /* Centraliza o texto que o usuário digitar */
+    /* O input já está centralizado pelo align-items: center do .box1 */
+}
+
+/* 8. Estilização do placeholder (O SEU FOCO!) */
+input[type="number"]::placeholder {
+    color: #888; /* Cor do placeholder */
+    text-align: center; /* ESTE É O COMANDO PARA CENTRALIZAR O TEXTO DO PLACEHOLDER */
+}
+/* Compatibilidade com navegadores mais antigos para placeholder */
+input[type="number"]::-webkit-input-placeholder { color: #888; text-align: center; }
+input[type="number"]::-moz-placeholder { color: #888; text-align: center; }
+input[type="number"]:-ms-input-placeholder { color: #888; text-align: center; }
+
+/* 9. Estilização do botão */
+button {
+    background-color: #007bff; /* Azul vibrante */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+/* 10. Estilização dos resultados e informações */
+div#resultado,
+div#resultado1 {
+    font-size: 1.1em;
+    margin-top: 5px; /* Espaço acima do resultado */
+}
+
+div.subtitulo strong { /* Para a linha "atual: 1.000 Via Presente = 1,99 Reais" */
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #c2e9fb; /* Um azul mais claro para destaque */
+}
+
+/* Estilização para as áreas de resultado */
+#resultado,
+#resultado1 {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+    color: #007bff; /* Cor do texto azul, para combinar com os botões */
+    font-size: 1.6em; /* Tamanho da fonte maior para destaque */
+    font-weight: 700; /* Negrito */
+    padding: 15px 20px; /* Espaçamento interno */
+    border-radius: 8px; /* Cantos arredondados */
+    margin-top: 15px; /* Espaço acima do elemento */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade */
+    width: fit-content; /* A largura se ajusta ao conteúdo */
+    max-width: 90%; /* Garante que não ultrapasse a largura do container */
+
+    /* Para centralizar este elemento de bloco que tem width: fit-content */
+    display: block; /* Garante que se comporte como bloco */
+    margin-left: auto;
+    margin-right: auto;
+    /* Ou, se o pai já tem display: flex e align-items: center, este margin: auto pode não ser estritamente necessário,
+       mas é uma boa prática para elementos de bloco com largura definida ou fit-content. */
+}
+
+/* No seu styleconversor.css */
+
+/* Estilos para o novo bloco de cabeçalho "Sr Dog Mal" */
+#sr {
+    margin-bottom: 30px; /* Espaço abaixo deste bloco */
+    color: #ffd700; /* Cor dourada para o texto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Sombra para destaque */
+}
+
+#sr h1 {
+    font-size: 3.5em; /* Tamanho grande para o nome principal */
+    font-weight: 700;
+    margin-bottom: 5px; /* Espaço entre o h1 e o h2 do IG */
+    text-transform: uppercase; /* Deixa o nome em maiúsculas */
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+}
+
+#sr h2 {
+    font-size: 1.5em; /* Tamanho para o IG */
+    font-weight: 400;
+    color: #c2e9fb; /* Um azul claro para o IG */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Ajustar o h3 dos conversores, já que não são mais h1 */
+.fundo h3 {
+    font-size: 1.8em; /* Ajusta o tamanho do h3 */
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    /* Remove a propriedade text-transform: uppercase; que estava no h1,
+       a menos que você queira que os h3 também fiquem em maiúsculas.
+       Se quiser, pode adicionar aqui: text-transform: uppercase; */
+}
+
+/* Se você ainda quiser que o "CRÉDITOS" no h3 seja uppercase, pode fazer assim: */
+.fundo:first-child h3 {
+    text-transform: uppercase; /* Mantém o destaque para "CRÉDITOS" no primeiro h3 */
+}
